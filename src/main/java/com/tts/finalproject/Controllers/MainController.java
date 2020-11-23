@@ -30,6 +30,10 @@ public class MainController {
     public String getMickys(PlacesRequest request, Model model) {
         List<Places> places = mickyService.getMickys(request);
         Location userLocation = mickyService.getUserLocation(request);
+        for (Places place : places){
+            place.setDistance(mickyService.getDistance(userLocation, place.getGeometry().getLocation()));
+            System.out.println(place.getDistance());
+        }
         model.addAttribute("places", places);
         model.addAttribute("request", request);  
         model.addAttribute("userLocation", userLocation);  

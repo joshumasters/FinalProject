@@ -9,33 +9,25 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-    <div class="container bg-light justify-content-center">
-        <div class="row">
-            <div class="span6" style="float: none; margin: 0 auto;">
-                <br/>
+    <div class="container bg-light justify-content-center">  
                 <h1 class="text-center">Find Micky D's</h1>
-                <form th:action="@{/}" th:object="${request}" method="post" autocomplete="off" class="form-inline">
+                <form th:action="@{/}" th:object="${request}" method="post" autocomplete="off" class="form">
                     <div class="form-group">
-                        <input type="text" th:field="*{address}" placeholder="Address" class="form-control"/>
+                      <label for="exampleInputEmail1">Address</label>
+                      <input type="text" th:field="*{address}" placeholder="Address" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                     </div>
                     <div class="form-group">
-                        <input type="text" th:field="*{city}" placeholder="City" class="form-control"/>		        
-                    </div>	        
-                    <div class="form-group">
-                        <input type="text" th:field="*{state}" placeholder="State" class="form-control"/>		        
-                    </div>	        
-                    <div class="form-group">
-                        <button class="btn btn-md btn-primary btn-block" name="Submit" value="Submit" type="Submit">Find</button>
+                      <label for="exampleInputPassword1">City</label>
+                      <input type="text" th:field="*{city}" placeholder="City" class="form-control" id="exampleInputPassword1">
                     </div>
-                </form>
-                <br/>
-            </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword2">State (ex: NC)</label>
+                      <input type="text" th:field="*{state}" placeholder="State" class="form-control" id="exampleInputPassword2">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+                </div>
         </div>
-        <!-- <Form>
-            <input id="lat">
-            <input id="lng">
-            <button class="btn btn-md btn-primary btn-block" name="Submit" value="Submit" type="Submit">Get Location</button>
-        </Form> -->
 </div>
 </body>
 </html>

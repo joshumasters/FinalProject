@@ -9,6 +9,8 @@ public class Places {
 
     private String vicinity;
 
+    private double distance;
+
     public Places() {
     }
 
@@ -44,11 +46,23 @@ public class Places {
         this.vicinity = vicinity;
     }
 
+     public double getDistance() {
+        return distance;
+    }
+
+    public void setDistance(double distance) {
+        this.distance = distance;
+    }
+    
     @Override
     public String toString() {
-        return "Places [geometry=" + geometry + ", opening_hours=" + opening_hours + ", place_id=" + place_id
-                + ", vicinity=" + vicinity + "]";
+        return "Places [distance=" + distance + ", geometry=" + geometry + ", opening_hours=" + opening_hours
+                + ", place_id=" + place_id + ", vicinity=" + vicinity + "]";
     }
+
+   
+
+    
 
     
 }

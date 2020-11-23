@@ -8,3 +8,13 @@ body {
   margin: 0;
   padding: 0;
 }
+
+body {
+  background-image: url('/mcdonald-s-4.svg');
+  background-size: 4%;
+}
+
+.container{
+  height: 100%;
+  padding-top: 15px;
+}

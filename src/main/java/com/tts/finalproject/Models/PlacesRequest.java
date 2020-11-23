@@ -4,6 +4,7 @@ public class PlacesRequest {
     public String address;
     public String city;
     public String state;
+    public String keyword;
 
    public PlacesRequest() {
     }
@@ -32,10 +33,22 @@ public class PlacesRequest {
         this.state = state;
     }
 
+    public String getKeyword() {
+        return keyword;
+    }
+
+    public void setKeyword(String keyword) {
+        this.keyword = keyword;
+    }
+
     @Override
     public String toString() {
-        return "PlacesRequest [address=" + address + ", city=" + city + ", state=" + state + "]";
+        return "PlacesRequest [address=" + address + ", city=" + city + ", keyword=" + keyword + ", state=" + state
+                + "]";
     }
+
+    
+    
 
     
 

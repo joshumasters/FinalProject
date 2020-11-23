@@ -9,6 +9,8 @@ public class Places {
 
     private String vicinity;
 
+    private String name;
+
     private double distance;
 
     public Places() {
@@ -54,12 +56,24 @@ public class Places {
         this.distance = distance;
     }
     
-    @Override
-    public String toString() {
-        return "Places [distance=" + distance + ", geometry=" + geometry + ", opening_hours=" + opening_hours
-                + ", place_id=" + place_id + ", vicinity=" + vicinity + "]";
+    public String getName() {
+        return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Places [distance=" + distance + ", geometry=" + geometry + ", name=" + name + ", opening_hours="
+                + opening_hours + ", place_id=" + place_id + ", vicinity=" + vicinity + "]";
+    }
+
+
+    
+
+    
    
 
     

@@ -13,6 +13,10 @@
                 <h1 class="text-center">Find Micky D's</h1>
                 <form th:action="@{/}" th:object="${request}" method="post" autocomplete="off" class="form">
                     <div class="form-group">
+                      <label for="exampleInputEmail1">What You Tryna Eat?</label>
+                      <input type="text" th:field="*{keyword}" placeholder="Restauraunt Name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
                       <label for="exampleInputEmail1">Address</label>
                       <input type="text" th:field="*{address}" placeholder="Address" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                     </div>
@@ -31,5 +35,3 @@
 </div>
 </body>
 </html>
-
-https://git.heroku.com/fierce-island-36497.git

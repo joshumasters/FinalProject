@@ -35,7 +35,8 @@ public class MickyService {
     public List<Places> getMickys(PlacesRequest request){
         RestTemplate restTemplate = new RestTemplate();
         Location coords = this.getCoordinates(request.getAddress() + " " + request.getCity() + " " + request.getState());
-        String url = placesUrl1 + coords.lat + "," + coords.lng + placesUrl2 + googleApiKey;
+        String url = placesUrl1 + coords.lat + "," + coords.lng + placesUrl2 + request.getKeyword() + "&key=" + googleApiKey;
+        System.out.println(url);
         PlacesResponse placesResponse = restTemplate.getForObject(url, PlacesResponse.class);
         List<Places> places = placesResponse.getResults();
         return places;
@@ -60,31 +61,10 @@ public class MickyService {
 
 }
 
-// public List<Places> getNearbyMickys(PlacesRequest request){
-//     List<Places> allBuses = this.getMickys();
-//     List<Places> nearbyBuses = new ArrayList<>();
-//     for(Bus bus : allBuses) {
-//         Location busLocation = new Location();
-//         busLocation.lat = bus.LATITUDE;
-//         busLocation.lng = bus.LONGITUDE;
-//         double latDistance = Double.parseDouble(busLocation.lat) - Double.parseDouble(personLocation.lat);
-//         double lngDistance = Double.parseDouble(busLocation.lng) - Double.parseDouble(personLocation.lng);
-//         if (Math.abs(latDistance) <= 0.02 && Math.abs(lngDistance) <= 0.02) {
-//             double distance = getDistance(busLocation, personLocation);
-//             if (distance <= 1) {
-//                 bus.distance = (double) Math.round(distance * 100) / 100;
-//                 nearbyBuses.add(bus);
-//             }
-//         }
-//     }
-//     Collections.sort(nearbyBuses, new BusComparator());
-//     return nearbyBuses;
-// }
-
-public Location getUserLocation(PlacesRequest request){
-    Location personLocation = this.getCoordinates(request.address + " " + request.city + " " + request.state);
-    System.out.println(personLocation);
-    return personLocation;
+    public Location getUserLocation(PlacesRequest request){
+        Location personLocation = this.getCoordinates(request.address + " " + request.city + " " + request.state);
+        System.out.println(personLocation);
+        return personLocation;
 
 }
 

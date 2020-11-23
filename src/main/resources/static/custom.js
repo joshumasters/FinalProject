@@ -2,11 +2,6 @@ let map, infoWindow;
 console.log(parseFloat(places[2].geometry.location.lat));
 
 function initMap() {
-  
-  let image = {
-    url: "/PinClipart.com_mcdonalds-clipart_194598.png",
-    scaledSize: new google.maps.Size(35, 35),  
-  };
 
   map = new google.maps.Map(document.getElementById('map'), {
     center: { lat: parseFloat(userLocation.lat), lng: parseFloat(userLocation.lng) },
@@ -16,19 +11,16 @@ function initMap() {
     
 });
 
-var userMarker = new google.maps.Marker({
-    position: { lat: parseFloat(userLocation.lat), lng: parseFloat(userLocation.lng) },
-    map: map,
-});
 
-for (i=0; i<places.length; i++){
-  let distance = places[i].distance;
-  distance = distance.toFixed(2);
-  let address = places[i].vicinity;
-  let open = places[i].opening_hours.open_now;
-
-  let contentString = "<h2> Distance: " + distance + "mi</h2><h2> Address: " + address + "</h2><h2>Open: " + open + "</h2>"
-  let infowindow = new google.maps.InfoWindow({
+  for (i=0; i<places.length; i++){
+    let distance = places[i].distance;
+    distance = distance.toFixed(2);
+    let address = places[i].vicinity;
+    let open = places[i].opening_hours.open_now;
+    let name = places[i].name;
+    console.log(name);
+    let contentString = "<h2>" + name + "</h2><h2> Distance: " + distance + "mi</h2><h2> Address: " + address + "</h2><h2>Open: " + open + "</h2>"
+    let infowindow = new google.maps.InfoWindow({
             content: contentString,
           });
   let marker = new google.maps.Marker({
@@ -36,7 +28,6 @@ for (i=0; i<places.length; i++){
         position: new google.maps.LatLng(parseFloat(places[i].geometry.location.lat), parseFloat(places[i].geometry.location.lng)),
         map: map,
         
-        icon: image,
     }); 
 
   let userCoords = userLocation.lat + "," + userLocation.lng;

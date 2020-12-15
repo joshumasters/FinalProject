@@ -5,7 +5,6 @@ import java.util.List;
 import com.tts.finalproject.Models.Location;
 import com.tts.finalproject.Models.Places;
 import com.tts.finalproject.Models.PlacesRequest;
-import com.tts.finalproject.Models.PlacesResponse;
 import com.tts.finalproject.Service.MickyService;
 
 import org.springframework.beans.factory.annotation.Autowired;

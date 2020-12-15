@@ -1,6 +1,5 @@
 package com.tts.finalproject.Service;
 
-import java.util.Arrays;
 import java.util.List;
 
 import com.tts.finalproject.Models.DistanceResponse;
@@ -36,7 +35,6 @@ public class MickyService {
         RestTemplate restTemplate = new RestTemplate();
         Location coords = this.getCoordinates(request.getAddress() + " " + request.getCity() + " " + request.getState());
         String url = placesUrl1 + coords.lat + "," + coords.lng + placesUrl2 + request.getKeyword() + "&key=" + googleApiKey;
-        System.out.println(url);
         PlacesResponse placesResponse = restTemplate.getForObject(url, PlacesResponse.class);
         List<Places> places = placesResponse.getResults();
         return places;

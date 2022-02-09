@@ -1,5 +1,7 @@
 package com.tts.finalproject.Controllers;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import com.tts.finalproject.Models.Location;
@@ -27,11 +29,24 @@ public class MainController {
 	
     @PostMapping("/")
     public String getMickys(PlacesRequest request, Model model) {
+        
         List<Places> places = mickyService.getMickys(request);
+        ArrayList<Places> forRemoval = new ArrayList<>();
+        for (Places place : places) {    
+           if(place.getOpening_hours() == null) {
+               forRemoval.add(place);
+           }
+        }
+        System.out.println("~~~REMOVING~~~");
+        for (Places place : forRemoval) {
+            System.out.println(place.getName().toString());
+        }
+        places.removeAll(forRemoval);
+    
+
         Location userLocation = mickyService.getUserLocation(request);
         for (Places place : places){
             place.setDistance(mickyService.getDistance(userLocation, place.getGeometry().getLocation()));
-            System.out.println(place.getDistance());
         }
         model.addAttribute("places", places);
         model.addAttribute("request", request);  

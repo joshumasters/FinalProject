@@ -14,6 +14,10 @@ public class Opening_Hours {
         this.open_now = open_now;
     }
 
+    public boolean isOpenNowNull(){
+        return open_now.isEmpty();
+    }
+
     @Override
     public String toString() {
         return "Opening_Hours [open_now=" + open_now + "]";
